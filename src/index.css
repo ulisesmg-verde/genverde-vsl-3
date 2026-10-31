@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-dirtyline: "Dirtyline36Daysoftype2022", "Instrument Serif", sans-serif;
+  --animate-marquee: marquee 20s linear infinite;
+  @keyframes marquee {
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Paleta Generación Verde */
+  --color-botella: #16302A;
+  --color-botella-deep: #0E1F1B;
+  --color-dorado: #C9A85D;
+  --color-crema: #F5F3EC;
+  --color-salvia: #8FA58A;
+  --color-papel: #FFFFFF;
+  --color-bruma: #F3F5F1;
+  --color-hoja: #DCE6D8;
+  --color-trigo: #F1E6CC;
+  --color-cielo: #DDE8EA;
+  --color-tinta: #16302A;
+  --color-tinta-suave: #4B5E57;
+  --color-oro-oscuro: #8C6D2C;
+}
+
+@font-face {
+  font-family: 'Dirtyline36Daysoftype2022';
+  src: url('/Dirtyline-36daysoftype-2022.woff2') format('woff2');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  font-display: swap;
+}
+
+html { -webkit-font-smoothing: antialiased; }
+
+body {
+  background-color: black;
+  color: white;
+}
+
+::selection { background: #C9A85D; color: #16302A; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .animate-marquee { animation: none; }
+}
+
+/* ───────── Contenedor del formulario GoHighLevel ───────── */
+.ghl-form-wrap {
+  background: #FFFFFF;
+  border: 1px solid rgba(22, 48, 42, 0.10);
+  border-radius: 28px;
+  padding: clamp(12px, 3vw, 28px);
+  box-shadow: 0 40px 80px -40px rgba(22, 48, 42, 0.30);
+  min-height: 602px;
+  overflow: hidden;
+}
+.ghl-form-wrap iframe {
+  display: block;
+  width: 100% !important;
+  min-height: 602px;
+  border: 0 !important;
+  border-radius: 16px !important;
+  background: transparent;
+}
+
+/* Tarjetas de servicios inclinadas (la rotación vive en el elemento interno para no chocar con GSAP) */
+.svc-card { transform: rotate(var(--rot-m, 0deg)); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+@media (min-width: 768px) {
+  .svc-card { transform: none; }
+  .svc-card:hover { transform: translateY(-10px); }
+}
+@media (prefers-reduced-motion: reduce) { .svc-drop { transform: none !important; opacity: 1 !important; } }
