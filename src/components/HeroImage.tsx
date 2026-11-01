@@ -32,7 +32,7 @@ export default function HeroImage() {
   }, [])
 
   return (
-    <div ref={stickyRef} className="sticky top-0 h-screen overflow-hidden bg-tinta">
+    <div ref={stickyRef} className="sticky top-0 h-screen overflow-hidden bg-tinta" style={{ height: '100svh' }}>
       <img
         ref={bgRef}
         src={CONFIG.heroImage}
@@ -43,7 +43,8 @@ export default function HeroImage() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/55" />
 
       {/* Titular */}
-      <div className="absolute inset-x-0 bottom-0 p-4 md:p-8">
+      {/* La base del titular queda a 3/4 de la pantalla (svh = alto visible real en móvil) */}
+      <div className="absolute inset-x-0 bottom-[25svh] px-4 md:bottom-[12svh] md:px-8">
         <h1
           ref={titleRef}
           className="font-dirtyline text-white uppercase"
